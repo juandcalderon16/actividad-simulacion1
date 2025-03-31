@@ -2,8 +2,8 @@
 
 |Integrante|correo|usuario github|
 |---|---|---|
-|Nombre completo integrante 1|correo integrante 1|gihub user integrante 1|
-|Nombre completo integrante 2|correo integrante 2|gihub user integrante 2|
+|Ana Maria Vega Angarita|ana.vega@udea.edu.co|anavegaa|
+|Juan Diego Calderon Bermeo|juand.calderon@udea.edu.co|juandcalderon16|
 
 ## Instrucciones
 
@@ -24,7 +24,9 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   jajajaja
+   '''
+      La utilizacion de la CPU debe ser del 100% porque en la parte derecha de las flags nos dice el porcentaje de CPU que se va a utilizar.
+   '''
    </details>
    <br>
 
