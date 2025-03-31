@@ -35,32 +35,50 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
 
 **```🟢 Ambos procesos tardan 11 unidades de tiempo en total, ya que como el primero usa el 100% de la CPU tarda 4 unidades de tiempo y el segundo tarda 7 unidades de tiempo (2 unidades de tiempo con I/O y 5 unidades de tiempo bloqueado).```**
+<p align="center">
+  <img src="Images/Punto2.png" alt="Punto #2">
+</p>
    
    <br>
 
 4. Switch the order of the processes: `-l 1:0,4:100`. What happens now? Does switching the order matter? Why? (As always, use `-c` and `-p` to see if you were right)
    
 **```🟢 Al cambiar el orden de los procesos toma menos tiempo, 7 unidades de tiempo en total. Si importa el orden, porque al entrar primero el proceso que se va a bloquear, la CPU al momento de bloquearlo sigue con el siguiente proceso mientras el primero sigue bloqueado las mismas 5 unidades de tiempo.```**
+<p align="center">
+  <img src="Images/Punto3.png" alt="Punto #3">
+</p>
    <br>
 
 5. We'll now explore some of the other flags. One important flag is `-S`, which determines how the system reacts when a process issues an I/O. With the flag set to SWITCH ON END, the system will NOT switch to another process while one is doing I/O, instead waiting until the process is completely finished. What happens when you run the following two processes (`-l 1:0,4:100 -c -S SWITCH ON END`), one doing I/O and the other doing CPU work?
    
 **```🟢 Al ejecutar con SWITCH ON END, cuando un proceso se bloquea, a diferencia del anterior ejercicio, la CPU no va a iniciar otro proceso hasta finalizar en el que está, entonces al entrar la primera instrucción se va a demorar las mismas 7 unidades de tiempo en I/O bloqueado y despues entra el siguiente proceso para completar las 11 unidades de tiempo. Por lo tanto, es mas eficiente si no se utiliza SWITCH ON END.```**
+<p align="center">
+  <img src="Images/Punto4.png" alt="Punto #4">
+</p>
    <br>
 
 6. Now, run the same processes, but with the switching behavior set to switch to another process whenever one is WAITING for I/O (`-l 1:0,4:100 -c -S SWITCH ON IO`). What happens now? Use `-c` and `-p` to confirm that you are right.
    
 **```🟢 Toma menos unidades de tiempo, ya que esta configurado para que empiece un proceso mientras el otro esta esperando en I/O.```**
+<p align="center">
+  <img src="Images/Punto5.png" alt="Punto #5">
+</p>
    <br>
 
 7. One other important behavior is what to do when an I/O completes. With `-I IO RUN LATER`, when an I/O completes, the process that issued it is not necessarily run right away; rather, whatever was running at the time keeps running. What happens when you run this combination of processes? (`./process-run.py -l 3:0,5:100,5:100,5:100 -S SWITCH ON IO -c -p -I IO RUN LATER`) Are system resources being effectively utilized?
    
 **```🟢 No se utilizan eficazmente los recursos del sistema, ya que al terminar el segundo proceso, lo más eficiente sería que intentara el primero para que al momento de bloquearse otra vez siguiera con el tercero y así sucesivamente para que al final tarde menos unidades de tiempo. En total tomó 31 unidades de tiempo.```**
+<p align="center">
+  <img src="Images/Punto6.png" alt="Punto #6">
+</p>
    <br>
 
 8. Now run the same processes, but with `-I IO RUN IMMEDIATE` set, which immediately runs the process that issued the I/O. How does this behavior differ? Why might running a process that just completed an I/O again be a good idea?
    
 **```🟢 Porque como se explicó anteriormente, al momento de volver a intentar el proceso de I/O, se vuelve a bloquear y continua con el siguiente, eso hace que se reduzca el tiempo, ya que no deja los procesos I/O para el final. Y como se ve en la imagen, tarde 21 unidades de tiempo en total, 10 menos que en el anterior.```**
+<p align="center">
+  <img src="Images/Punto7.png" alt="Punto #7">
+</p>
    <br>
 
 
