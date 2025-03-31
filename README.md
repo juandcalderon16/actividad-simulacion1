@@ -23,6 +23,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
 1. Run `process-run.py` with the following flags: `-l 5:100,5:100`. What should the CPU utilization be (e.g., the percent of time the CPU is in use?) Why do you know this? Use the `-c` and `-p` flags to see if you were right.
 
 **```🟢 La utilizacion de la CPU debe ser del 100% porque en la parte derecha de las flags nos dice el porcentaje de CPU que se va a utilizar.```**
+![Punto #1](images/Punto1.png)
 
    <br>
 
