@@ -24,9 +24,7 @@ This program, [`process-run.py`](process-run.py), allows you to see how process 
    
    <details>
    <summary>Answer</summary>
-   ```
-      La utilizacion de la CPU debe ser del 100% porque en la parte derecha de las flags nos dice el porcentaje de CPU que se va a utilizar.
-   ```
+   `La utilizacion de la CPU debe ser del 100% porque en la parte derecha de las flags nos dice el porcentaje de CPU que se va a utilizar.`
    </details>
    <br>
 
