@@ -2,8 +2,8 @@
 
 |Integrante|correo|usuario github|
 |---|---|---|
-|Ana Maria Vega Angarita|ana.vega@udea.edu.co|anavegaa|
-|Juan Diego Calderon Bermeo|juand.calderon@udea.edu.co|juandcalderon16|
+|Ana María Vega Angarita|ana.vega@udea.edu.co|anavegaa|
+|Juan Diego Calderón Bermeo|juand.calderon@udea.edu.co|juandcalderon16|
 
 ## Instrucciones
 
